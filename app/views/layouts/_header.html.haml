@@ -1,0 +1,10 @@
+%header.navbar.navbar-fixed-top.navbar-inverse
+  .container
+    = link_to "sample app", '#', id: "logo"
+    %nav
+      %ul.nav.navbar-nav.navbar-right
+        %li
+          = link_to "Home", root_path
+          = link_to "Help", help_path
+          = link_to "Log in", '#'
+          = link_to "Sign up", signup_path
