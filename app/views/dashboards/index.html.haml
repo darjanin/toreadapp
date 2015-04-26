@@ -1,0 +1,15 @@
+- provide(:title, 'Dashboard')
+
+%h1 Dashboard
+
+= form_for @list do |f|
+  .row
+    .columns.nine
+      = f.text_field :title, placeholder: 'Add new list', class: 'u-full-width'
+    .columns.three
+      = f.submit 'Add list', class: 'button button-primary u-full-width'
+
+.row
+  .columns.four
+    %ul= render @lists
+  .columns.eight
