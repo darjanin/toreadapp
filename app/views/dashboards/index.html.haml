@@ -9,7 +9,17 @@
     .columns.three
       = f.submit 'Add list', class: 'button button-primary u-full-width'
 
+= form_for @item do |f|
+  = f.hidden_field :list, :value => 1
+  .row
+    .columns.nine
+      = f.text_area :content, placeholder: 'Add new item', class: 'u-full-width'
+    .columns.three
+      = f.submit 'Add item', class: 'button button-primary u-full-width'
+
 .row
   .columns.four
     %ul= render @lists
   .columns.eight
+    - @items.each do |item|
+      %div= item.content
