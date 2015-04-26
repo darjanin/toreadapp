@@ -1,0 +1,61 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import 'normalize';
+@import 'skeleton';
+
+.clear {
+    @extend .u-cf;
+}
+.center-box {
+    margin-left: auto;
+    margin-right: auto;
+}
+header {
+    padding: 1rem 0;
+    h1 {
+        float: left;
+        font-size: 1.5em;
+        a {
+            text-decoration: none
+        }
+    }
+}
+nav {
+    float: right;
+    ul {
+        @extend .clear;
+        list-style: none;
+    }
+    li {
+        float: left;
+        position: relative;
+
+        &:first-child a {
+            // border-left-width: 1px;
+            // border-radius: .25rem 0 0 .25rem;
+        }
+        &:last-child a {
+            // border-right-width: 1px;
+            // border-radius: 0 .25rem .25rem 0;
+        }
+    }
+    a {
+        padding: .5rem 1rem;
+        // border: solid #ccc;
+        // border-width: 1px 0 1px 0;
+
+    }
+}
