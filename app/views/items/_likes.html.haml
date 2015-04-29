@@ -1,0 +1,4 @@
+%div
+  = link_to 'Like', "/dashboard/karma/#{item.id}", class: 'button', remote: true
+  Number of likes
+  %span{id:"likes-for-#{item.id}"}= item.karma

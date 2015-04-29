@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   get 'dashboard' => 'dashboards#index'
   get 'dashboard/:id' => 'dashboards#show'
+  get 'dashboard/:id/item/:item_id' => 'dashboards#item_show'
+  get 'dashboard/karma/:id' => 'items#raise_karma'
   root 'static_pages#home'
   get 'help' => 'static_pages#help'
   get 'about' => 'static_pages#about'

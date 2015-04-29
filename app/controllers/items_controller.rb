@@ -19,6 +19,16 @@ class ItemsController < ApplicationController
     end
   end
 
+  def raise_karma
+    @item = Item.find(params[:id])
+    @item.karma += 1
+    if @item.save
+      respond_to do |format|
+        format.js {}
+      end
+    end
+  end
+
   private
 
     def item_params

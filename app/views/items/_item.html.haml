@@ -1,3 +1,4 @@
-%div
-  = item.content
-  = link_to 'Show more', '#', class: 'item-show-more','data-item-id' => item.id
+%article
+  %p= item.content
+  %div{id: "likes-#{item.id}"}
+    = render partial: 'items/likes', locals: {item: item}

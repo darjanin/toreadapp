@@ -1,1 +1,2 @@
-$("<%= escape_javascript(render @item) %>").appendTo("#items");
+$("<%= escape_javascript(render partial: 'item', locals: {active_list: @list_id, item: @item}) %>").appendTo("#items");
+$("#item_content").val('');

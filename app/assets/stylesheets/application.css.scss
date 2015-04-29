@@ -63,3 +63,11 @@ nav {
 .active {
     color: red;
 }
+
+article {
+    border: 1px solid #ccc;
+    padding: .5rem 1rem;
+    p {
+        padding-top: 1rem;
+    }
+}

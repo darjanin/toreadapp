@@ -4,7 +4,7 @@ class ListsController < ApplicationController
   def create
     @list = current_user.lists.build(list_params)
     if @list.save
-      redirect_to dashboard_path
+      redirect_to controller: 'dashboards', action: 'show', id: @list.id
     else
       render 'dashboard#index'
     end

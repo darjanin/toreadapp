@@ -6,23 +6,24 @@
 
 %h1 Dashboard
 
-= form_for @list do |f|
-  .row
-    .columns.nine
-      = f.text_field :title, placeholder: 'Add new list', class: 'u-full-width'
-    .columns.three
-      = f.submit 'Add list', class: 'button button-primary u-full-width'
-
-= form_for @item, remote: true do |f|
-  = f.hidden_field :list_id, :value => @list_id
-  .row
-    .columns.nine
-      = f.text_field :content, placeholder: 'Add new item', class: 'u-full-width'
-    .columns.three
-      = f.submit 'Add item', class: 'button button-primary u-full-width'
-
 .row
-  .columns.two
+  .columns.three
+    - if @list
+      = form_for @list do |f|
+        .row
+          .columns.twelve
+            = f.text_field :title, placeholder: 'Add new list', class: 'u-full-width'
+          .columns.twelve
+            = f.submit 'Add list', class: 'button button-primary u-full-width'
     %ul= render partial: "lists/list", collection: @lists, locals: {active_list: @list_id}
-  .columns.ten#items
-    = render @items
+  .columns.nine#items
+    - if @item
+      = form_for @item, remote: true, :authenticity_token => true, id: "item-form" do |f|
+        = f.hidden_field :list_id, :value => @list_id ? @list_id : 1
+        .row
+          .columns.nine
+            = f.text_field :content, placeholder: 'Add new item', class: 'u-full-width'
+          .columns.three
+            = f.submit 'Add item', class: 'button button-primary u-full-width'
+    = render partial: "items/item", collection: @items, locals: {active_list: @list_id}
+
