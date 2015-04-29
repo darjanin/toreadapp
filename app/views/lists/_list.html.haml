@@ -1,1 +1,2 @@
-%li= link_to list.title, "/dashboard/list/#{list.id}"
+- active_class = (list.id == active_list.to_i) ? 'active' : ''
+%li= link_to list.title, "/dashboard/#{list.id}", class: "#{active_class}"

@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'dashboard' => 'dashboards#index'
-  get 'dasboard/:id' => 'dashboard#index'
+  get 'dashboard/:id' => 'dashboards#show'
   root 'static_pages#home'
   get 'help' => 'static_pages#help'
   get 'about' => 'static_pages#about'

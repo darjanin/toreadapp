@@ -8,10 +8,13 @@ class DashboardsController < ApplicationController
     @items = Item.all
   end
 
-  def list_items
+  def show
+    @list_id = params[:id]
     @list = current_user.lists.build if logged_in?
-    @list_selected = List.find(params[:id])
+    @item = current_user.items.build if logged_in?
+    @lists = List.all
+    @items = Item.where("list_id=?", @list_id)
+    render "index"
   end
-
 
 end

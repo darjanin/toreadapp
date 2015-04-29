@@ -1,5 +1,9 @@
 - provide(:title, 'Dashboard')
 
+#dialog{style: 'display: none;'}
+  %h2 jksajld
+  %p sadkadj
+
 %h1 Dashboard
 
 = form_for @list do |f|
@@ -9,17 +13,16 @@
     .columns.three
       = f.submit 'Add list', class: 'button button-primary u-full-width'
 
-= form_for @item do |f|
-  = f.hidden_field :list, :value => 1
+= form_for @item, remote: true do |f|
+  = f.hidden_field :list_id, :value => @list_id
   .row
     .columns.nine
-      = f.text_area :content, placeholder: 'Add new item', class: 'u-full-width'
+      = f.text_field :content, placeholder: 'Add new item', class: 'u-full-width'
     .columns.three
       = f.submit 'Add item', class: 'button button-primary u-full-width'
 
 .row
-  .columns.four
-    %ul= render @lists
-  .columns.eight
-    - @items.each do |item|
-      %div= item.content
+  .columns.two
+    %ul= render partial: "lists/list", collection: @lists, locals: {active_list: @list_id}
+  .columns.ten#items
+    = render @items
