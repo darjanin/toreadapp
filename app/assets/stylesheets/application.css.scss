@@ -67,7 +67,12 @@ nav {
 article {
     border: 1px solid #ccc;
     padding: .5rem 1rem;
+    margin: .5rem 0;
     p {
         padding-top: 1rem;
     }
+}
+
+form {
+    margin: 0;
 }

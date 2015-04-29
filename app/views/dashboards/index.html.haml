@@ -22,7 +22,7 @@
         = f.hidden_field :list_id, :value => @list_id ? @list_id : 1
         .row
           .columns.nine
-            = f.text_field :content, placeholder: 'Add new item', class: 'u-full-width'
+            = f.text_field :content, placeholder: 'Add new url', class: 'u-full-width'
           .columns.three
             = f.submit 'Add item', class: 'button button-primary u-full-width'
     = render partial: "items/item", collection: @items, locals: {active_list: @list_id}
