@@ -1,0 +1,10 @@
+/ - discussions = Discussion.where('item_id' = )
+
+= form_for discussion, :authenticity_token => true do |f|
+  = f.hidden_field :item_id, :value => item_id ? item_id : 1
+  = hidden_field_tag 'list_id', list_id ? list_id : 1
+  .row
+    .columns.twelve
+      = f.text_area :content, placeholder: 'Comment', class: 'u-full-width'
+    .columns.twelve
+      = f.submit 'Comment', class: 'button button-primary'

@@ -25,5 +25,5 @@
             = f.text_field :content, placeholder: 'Add new url', class: 'u-full-width'
           .columns.three
             = f.submit 'Add item', class: 'button button-primary u-full-width'
-    = render partial: "items/item", collection: @items, locals: {active_list: @list_id}
+    = render partial: "items/item", collection: @items, locals: {active_list: @list_id, discussion: @discussion, discussions: @discussions, list_id: @list_id}
 

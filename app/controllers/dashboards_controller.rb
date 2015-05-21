@@ -12,8 +12,13 @@ class DashboardsController < ApplicationController
     @list_id = params[:id]
     @list = current_user.lists.build if logged_in?
     @item = current_user.items.build if logged_in?
+    @discussion = current_user.discussions.build if logged_in?
     @lists = List.all
     @items = Item.where("list_id=?", @list_id)
+    @discussions = {}
+    @items.each do |item|
+      @discussions[item.id] = Discussion.where("item_id=?", item.id)
+    end
     render "index"
   end
 
